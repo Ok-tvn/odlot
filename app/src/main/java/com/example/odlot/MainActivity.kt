@@ -55,14 +55,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
         przycisk.setOnClickListener{
-            val date_start = SimpleDateFormat("dd/MM/yyyy").parse(textview_start.toString())
-            val date_koniec = SimpleDateFormat("dd/MM/yyyy").parse(textview_koniec.toString())
-            val diff: Long = date_start.getTime() - date_koniec.getTime()
-            val seconds = diff / 1000
-            val minutes = seconds / 60
-            val hours = minutes / 60
-            val days = hours / 24
-            progres.max=days.toInt();
+            val dateStr = start
+            val sdf = SimpleDateFormat("dd/MM/yyyy")
+            val date = sdf.parse(dateStr)
             timer.start()
         }
 
